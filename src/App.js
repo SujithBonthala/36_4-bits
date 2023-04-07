@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PieChart from "./Components/piechart";
 import MainPage from "./Components/MainPage";
 import Performance from "./Components/Performance";
 import Prediction from "./Components/Prediction";

@@ -8,15 +8,43 @@ function MainPage() {
   const navigate = useNavigate();
   const [my_data, setdata] = useState("");
 
-  const fetchData = async () => {
-    const response = await axios.get(`http://127.0.0.1:5000/member`);
-    const a = (response.data.results);
-    alert(a)
+  const handleFileUploadP = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    fetch("http://127.0.0.1:5000/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("File successfully uploaded!");
+        navigate("/performance");
+      })
+      .catch((error) => {
+        alert("Error occurred while uploading the file!: " + error);
+      });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const handleFileUploadF = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    alert(file)
+    fetch("http://127.0.0.1:5000/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("File successfully uploaded!");
+        navigate("/performance");
+      })
+      .catch((error) => {
+        alert("Error occurred while uploading the file!: " + error);
+      });
+  };
+
   return (
     <div className="Mainouter">
       <h1 className="Mainheading">Welcome to the world of analytics</h1>
@@ -40,15 +68,25 @@ function MainPage() {
                 Performance Analysis
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <button
-                  type="button"
-                  class="btn btn-primary Buttonlist"
-                  onClick={() => {
-                    navigate("/performance");
-                  }}
-                >
-                  Input data file
-                </button>
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">Upload</span>
+                  </div>
+                  <div className="custom-file">
+                    <input
+                      type="file"
+                      className="custom-file-input"
+                      id="inputGroupFile01"
+                      onChange={handleFileUploadP}
+                    />
+                    <label
+                      className="custom-file-label"
+                      htmlFor="inputGroupFile01"
+                    >
+                      Choose
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -66,15 +104,25 @@ function MainPage() {
                 Feedback Analysis
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <button
-                  type="button"
-                  class="btn btn-primary Buttonlist"
-                  onClick={() => {
-                    navigate("/performance");
-                  }}
-                >
-                  Input data file
-                </button>
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">Upload</span>
+                  </div>
+                  <div className="custom-file">
+                    <input
+                      type="file"
+                      className="custom-file-input"
+                      id="inputGroupFile01"
+                      onChange={handleFileUploadF}
+                    />
+                    <label
+                      className="custom-file-label"
+                      htmlFor="inputGroupFile01"
+                    >
+                      Choose
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
           </li>

@@ -1,12 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import barchart from "./bar-graph.png";
 import piechart from "./pie-chart.png";
 import radarchart from "./radar-chart.png";
-import "./Performance.css"
+import "./Performance.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Performance() {
+  const [chartData, setChartData] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/image1")
+      .then((res) => {
+        setChartData(res.data.image);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const navigate = useNavigate();
   return (
     <div class="container-fluid">
@@ -26,7 +39,15 @@ function Performance() {
         </ol>
         <div className="carousel-inner imageContainer">
           <div className="carousel-item active">
-            <img src={barchart} className="barchartImage" alt="..." />
+            <div>
+              {chartData && (
+                <img
+                  src={`data:image/png;base64,${chartData}`}
+                  alt="Bar chart"
+                  className="barchartImage"
+                />
+              )}
+            </div>
           </div>
           <div className="carousel-item">
             <img src={piechart} className="piechartImage" alt="..." />

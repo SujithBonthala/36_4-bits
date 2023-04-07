@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import prediction from "./prediction.png";
 import prediciton_2 from "./prediction_2.jpg";
 import prediction_3 from "./predict_3.jpg";
-import "./Predcition.css"
+import "./Predcition.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Prediction() {
   const navigate = useNavigate();
