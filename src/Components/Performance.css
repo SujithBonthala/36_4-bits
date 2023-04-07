@@ -1,0 +1,31 @@
+.barchartImage
+{
+    width: 50%;
+    height:30%;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.piechartImage
+{
+    width: 50%;
+    height: 10%;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.radarchartImage
+{
+    width: 40%;
+    height: 5%;
+    margin-left: 350px;
+    margin-bottom:50px;
+    margin-top: 50px;
+}
+
+.imageContainer
+{
+    background-color: black;
+}

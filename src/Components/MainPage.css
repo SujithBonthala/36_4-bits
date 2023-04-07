@@ -1,0 +1,41 @@
+.MainBox
+{
+    margin-top: 150px;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-left:490px;
+    background: #000;
+
+}
+
+.Mainouter
+{
+    background-color: aquamarine;
+    padding-top: 10px;
+    padding-bottom: 140px;
+}
+
+.Buttonlist
+{
+    width:180px;
+    margin-left: 1px;
+}
+
+.Mainheading
+{
+    margin-left:300px ;
+    background-color: aliceblue;
+    display: inline;
+}
+
+.dropdownbutton
+{
+    margin-left: 10px;
+    width:180px;
+}
+
+.onlyButtonlist {
+    width: 180px;
+    margin-left: 10px;
+}
